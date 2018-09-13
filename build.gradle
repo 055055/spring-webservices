@@ -7,6 +7,8 @@ buildscript {
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		//추가
+		classpath "io.spring.gradle:dependency-management-plugin:1.0.4.RELEASE" 
 	}
 }
 
@@ -14,6 +16,10 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
+
+ext['hibernate.version'] = '5.2.11.Final' //추가
+//SpringDataJpa가 사용하는 Hibernate의 버전만 5.2.11로 변경해서 사용하겠다는 의존성 변경 코드입니다. 
+//이렇게 하면 LocalDate/LocalDateTime과 Database간 문제는 해결됩니다! 
 
 group = 'com.ik'
 version = '0.0.1-SNAPSHOT'
